@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"content="">
+    <meta name="author" content="isamu">
+    <meta name="keywords" content="">
+
+    <!-- OG Meta Tags to improve the way the post looks when you share the page on Facebook, Twitter, LinkedIn -->
+    <meta property="og:site_name" content="isamu.id" /> <!-- website name -->
+    <meta property="og:site" content="https://isamu.id" /> <!-- website link -->
+    <meta property="og:title" content="ISAMU.ID - Just wear IT" />
+    <!-- title shown in the actual shared post -->
+    <meta property="og:description" content="" />
+    <!-- description shown in the actual shared post -->
+    <meta property="og:image" content="" />
+    <!-- image link, make sure it's jpg -->
+    <meta property="og:url" content="" /> <!-- where do you want your post to link to -->
+    <meta name="twitter:card" content="summary_large_image"> <!-- to have large image post format in Twitter -->
+
+    <!-- Webpage Title -->
+    <title>ISAMU.ID - Berani tampil beda</title>
+
+    <!-- Styles -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap"rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/fontawesome-all.css" rel="stylesheet">
+    <link href="css/swiper2.css" rel="stylesheet">
+    <link href="css/magnific-popup.css" rel="stylesheet">
+    <link href="css/styles2.css" rel="stylesheet">
+    <link href="css/color1.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+
+    <script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <!-- Favicon  -->
+    <link rel="icon" href="images/icon.png">
+
+    <script>
+        const myTimeout = setTimeout(myGreeting, 15000);
+        function myGreeting() {
+            $('#exampleModal').modal('show')
+        }
+    </script>
+
+
+    <style>
+        .kedip {
+            animation: blink-animation 1s steps(5, start) infinite;
+            -webkit-animation: blink-animation 1s steps(5, start) infinite;
+        }
+
+        @keyframes blink-animation {
+            to {
+                visibility: hidden;
+            }
+        }
+
+        @-webkit-keyframes blink-animation {
+            to {
+                visibility: hidden;
+            }
+        }
+        .img-thumbnail {
+
+            border: 0px;
+        }
+
+        .bgfootermobile {
+            background: url('images/bg-moblie-footer.jpg') center center no-repeat;
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+            background-size: cover;
+            text-align: center;
+        }
+
+        @media (min-width: 1200px) {
+            .header {
+                background: url('images/new_bg.jpg') center center no-repeat;
+                background-size: cover;
+                overflow-x: hidden;
+            }
+        }
+        @media (min-width: 992px) {
+            .header {
+                background: url('images/new_bg.jpg') center center no-repeat;
+                background-size: cover;
+                padding-bottom: 7rem;
+                text-align: left;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .header {
+                background: url('images/new_bg.jpg') center center no-repeat;
+                background-size: cover;
+                padding-bottom: 7rem;
+                text-align: left;
+            }
+
+        }
+        @media (max-width:768px) {
+            .header {
+                background: url('images/mobile_bg.jpg') center center no-repeat;
+                padding-top: 7rem;
+                padding-bottom: 2.5rem;
+                background-size: cover;
+                text-align: center;
+            }
+        	.bgfootermobile {
+                background: url('images/bg-moblie-footer.jpg') center center no-repeat;
+                padding-top: 5rem;
+                padding-bottom: 5rem;
+                background-size: cover;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body data-spy="scroll" data-target=".fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light">
+        <div class="container">
+
+            <!-- Text Logo - Use this if you don't have a graphic logo -->
+            <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Kora</a> -->
+
+            <!-- Image Logo -->
+            <div class="logo-image"></div>
+            
+        </div> <!-- end of container -->
+    </nav> <!-- end of navbar -->
+    <!-- end of navigation -->
+
+
+    <!-- Header-->
+    <header id="header" class="header">
+        <div id="cardmobileshow">
+            <div class="text-container">
+                <div class="backtrans p-3">
+                     <!-- VAR HEADER MOBILE-->
+                    <h4 class="h4-medium">Dapatkan T-Shirt kualitas <span style="color: rgb(194, 13, 13)">PREMIUM</span>  hanya di ISAMU.ID</h4>
+                    <p class="p-large">Kami adalah produsen T-Shirt dengan desain kekinian dan diproduksi dengan jumlah terbatas</p>
+                    <a class="btn-solid-lg" href="#">Dapatkan PROMO Sekarang!!!</a>
+                      <!-- END OF VAR HEADER MOBILE-->
+                </div>
+            </div> 
+            
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div id="cardmobile">
+                    </div>
+                    <div id="cardweb">
+                        <div class="text-container">
+                            <div class="backtrans p-4">
+                                  <!-- VAR HEADER DESKTOP-->
+                                <h4 class="h4-medium">Dapatkan T-Shirt kualitas <span style="color: rgb(194, 13, 13)">PREMIUM</span> hanya di ISAMU.ID</h4>
+                                <p class="p-large">Kami adalah produsen T-Shirt dengan desain kekinian dan diproduksi dengan jumlah terbatas</p>
+                                <a class="btn-solid-lg" href="#">Dapatkan PROMO Sekarang!!!</a>
+                                  <!-- END OF VAR HEADER DESKTOP-->
+                            </div>
+                        </div> <!-- end of text-container -->
+                    </div>
+                </div> <!-- end of col -->
+                <div class="col-lg-6">
+                    <div class="image-container">
+                    </div> <!-- end of image-container -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </header> <!-- end of header -->
+    <!-- Customers -->
+
+    <div id="firstcontent" class="slider-1">
+        <div class="container">
+            <!-- VAR CONTENT_1 -->
+            <div class="row">
+                <div class="col-lg-12 mb-5">
+                    <h4 class="mb-2">Kamu pernah mengalami hal seperti ini?</h4>
+                    <div style="margin: auto;height:2px;width:30px;border-bottom:solid 5px rgb(194, 13, 13);"></div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-12 mb-4" style="padding:5px;">
+                            <div class="single-work">
+                                <div class="serial">
+                                    <img class="img-thumbnail" src="../web_download/images/old_tshirt.jpg">
+                                </div>
+                                <h3 class="mt-3 mb-3">Cetakan gampang terkelupas setelah dicuci berulang kali</h3>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-12 mb-4" style="padding:5px;">
+                            <div class="single-work">
+                                <div class="serial">
+                                    <img class="img-thumbnail" src="../web_download/images/old_tshirt.jpg">
+                                </div>
+
+                                <h3 class="mt-3 mb-3">Bahan panas saat digunakan dan tidak menyerap keringat</p>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-12 mb-4" style="padding:5px;">
+                            <div class="single-work">
+                                <div class="serial">
+                                    <img class="img-thumbnail" src="../web_download/images/old_tshirt.jpg">
+                                </div>
+
+                                <h3 class="mt-3 mb-3">Cepat melar atau malah menyusut setelah dicuci</p>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-12 mb-4" style="padding:5px;">
+                            <div class="single-work">
+                                <div class="serial">
+                                    <img class="img-thumbnail" src="../web_download/images/old_tshirt.jpg">
+                                </div>
+
+                                <h3 class="mt-3 mb-3">Malu karena ketemu orang dengan desain kaos sama</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+            <!-- END OF VAR CONTENT_1 -->
+        </div> <!-- end of container -->
+    </div> <!-- end of slider-1 -->
+    <!-- end of customers -->
+
+    <div style="background-color: rgb(245, 248, 248);padding-top: 0px;" class="slider-1">
+        <div class="container">
+            <!-- VAR CONTENT_2 -->
+            <div class="row justify-content-md-center mt-1">
+                <div class="col-lg-8">
+                    <h4 class="mt-5">Masalah itu bisa kamu hindari!!!!</span></h4>
+                </div>
+                <div class="col-lg-8 mb-4 mt-4">
+                    <p class="p-large">Tampil beda & penuh percaya diri didepan banyak orang</span></p>
+                    <p class="p-medium">Kami berikan solusi ampuh untuk mengatasinya. Telah banyak orang terbantu dan
+                        tidak lagi menghadapi permasalahan yang sama.</span></p>
+                    <a href="https://api.whatsapp.com/send?phone=6281211770553&text=Hallo%20Packlagi,%20Saya%20mau%20konsultasi%20pembuatan%20HARDBOX%20agar%20produk%20lebih%20menarik%20saat%20UNBOXING."
+                        target="_blank" id="cta_unboxing" class="btn-solid-lg mt-4">Tampil Beda Sekarang!!!</a>
+                </div>
+            </div> <!-- end of row -->
+             <!-- END OF VAR CONTENT_2 -->
+        </div> <!-- end of container -->
+    </div> <!-- end of basic-3 -->
+    <!-- end of details 2 -->
+    <div class="slider-1">
+        <div class="container">
+            <!-- VAR CONTENT_3 -->
+            <div class="row">
+                <div class="col-lg-12 mb-5">
+                    <h4 class="mb-2">Dapatkan kesempatan terbatas terbatas ini </h4>
+                    <div style="margin: auto;height:2px;width:30px;border-bottom:solid 5px rgb(194, 13, 13);"></div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-12 mb-4" style="padding:5px;">
+                            <div class="single-work">
+                                <div class="serial">
+                                    <img class="img-thumbnail" src="../web_download/images/old_tshirt.jpg">
+                                </div>
+                                <h3 class="mt-3 mb-3">Bahan elastis sehingga tidak mudah melar walaupun pemakain
+                                    berulang-ulang</h3>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-12 mb-4" style="padding:5px;">
+                            <div class="single-work">
+                                <div class="serial">
+                                    <img class="img-thumbnail" src="../web_download/images/old_tshirt.jpg">
+                                </div>
+
+                                <h3 class="mt-3 mb-3">Lembut dan sangat nyaman saat dipakai apapun aktifitasnya</p>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-12 mb-4" style="padding:5px;">
+                            <div class="single-work">
+                                <div class="serial">
+                                    <img class="img-thumbnail" src="../web_download/images/old_tshirt.jpg">
+                                </div>
+
+                                <h3 class="mt-3 mb-3">Bahan menyerap keringat sehingga mengurangi kuman penyebab gatal
+                                    pada kulit</p>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-12 mb-4" style="padding:5px;">
+                            <div class="single-work">
+                                <div class="serial">
+                                    <img class="img-thumbnail" src="../web_download/images/old_tshirt.jpg">
+                                </div>
+
+                                <h3 class="mt-3 mb-3">Desain sangat limited hanya untuk kamu yang ingin tampil beda</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+            <!-- END OF VAR CONTENT_3 -->
+        </div> <!-- end of container -->
+    </div> <!-- end of slider-1 -->
+    <div style="background-color: rgb(245, 248, 248);padding-top: 0px;" class="slider-1">
+        <div class="container">
+            <!-- VAR CONTENT_4 -->
+            <div class="row justify-content-md-center mt-1">
+                <div class="col-lg-8">
+                    <h4 class="mt-5">ISAMU.ID hanya memberikan produk spesial untuk kamu!!!</h4>
+                </div>
+                <div class="col-lg-8 mb-4 mt-4">
+                    <p class="p-large">Kenapa kamu harus ambil kesempatan ini? Karena di sini kamu berhak untuk
+                        mendapatkan produk spesial berupa : </p>
+                </div>
+            </div> <!-- end of row -->
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-12 mb-4">
+                        <div class="single-work">
+                            <div class="serial">
+                                <img class="img-thumbnail" src="../web_download/images/exclusive.jpg">
+                            </div>
+                            <p style='padding-left:10px;padding-right:10px;' class="p-medium">Design kaos Exclusive,
+                                Dibuat sepenuh hati dan penuh perhatian sehingga produk yang di hasilkan merupakan
+                                produk unggulan!</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12 mb-4">
+                        <div class="single-work">
+                            <div class="serial">
+                                <img class="img-thumbnail" src="../web_download/images/exclusive.jpg">
+                            </div>
+                            <p style='padding-left:10px;padding-right:10px;' class="p-medium">Kami Melakukan Pencetakan
+                                Mengunakan Tinta Khusus yang Hanya Diproduksi di Eropa dengan kualitas Tinta Yang
+                                Premium</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12 mb-4">
+                        <div class="single-work">
+                            <div class="serial">
+                                <img class="img-thumbnail" src="../web_download/images/exclusive.jpg">
+                            </div>
+                            <p style='padding-left:10px;padding-right:10px;' class="p-medium">Produk Kami Terbatas, Dan
+                                merupakan Produk <strong>Fresh From the Oven</strong>, yang berarti <strong>Pesan hari
+                                    ini produksi hari ini bukan barang ready stok berbulan bulan</strong></p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END OF VAR CONTENT_4 -->
+        </div> <!-- end of container -->
+    </div> <!-- end of basic-3 -->
+    <div class="slider-1">
+        <div class="container">
+            <!--VAR PRODUCT CATALOG -->
+            <div class="row">
+                <div class="col-lg-12 mb-5">
+                    <h4 class="mb-2">Katalog produk ISAMU.ID </h4>
+                    <div style="margin: auto;height:2px;width:30px;border-bottom:solid 5px rgb(194, 13, 13);"></div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-md-12 col-6" id="catalog-product">
+                    <div class="catalog">
+                        <div class="mb-1">
+                            <a href="#" data-toggle="modal" data-target="#exampleModal"><img class="img-catalog" src="../web_download/images/old_tshirt.jpg"></a>
+                        </div>
+                        <div class="info-title mb-2">
+                        <a data-toggle="modal" data-target="#exampleModal" style="text-decoration: none;" href="#"><p class='p-small'>Kaos Anime Doraemon Murah Sekali</p></a>
+                        <span class='price'>Rp. 98.000</span>
+                        </div>
+
+                        
+                    </div>
+                </div> <!-- end of col -->
+                <div class="col-lg-4 col-md-6 col-md-12 col-6" id="catalog-product">
+                    <div class="catalog">
+                        <div class="mb-1">
+                            <a href="#" data-toggle="modal" data-target="#exampleModal"><img class="img-catalog" src="../web_download/images/old_tshirt.jpg"></a>
+                        </div>
+                        <div class="info-title mb-2">
+                        <a data-toggle="modal" data-target="#exampleModal" style="text-decoration: none;" href="#"><p class='p-small'>Kaos Anime Doraemon Murah Sekali</p></a>
+                        <span class='price'>Rp. 98.000</span>
+                        </div>
+
+                        
+                    </div>
+                </div> <!-- end of col -->
+                <div class="col-lg-4 col-md-6 col-md-12 col-6" id="catalog-product">
+                    <div class="catalog">
+                        <div class="mb-1">
+                            <a href="#" data-toggle="modal" data-target="#exampleModal"><img class="img-catalog" src="../web_download/images/old_tshirt.jpg"></a>
+                        </div>
+                        <div class="info-title mb-2">
+                        <a data-toggle="modal" data-target="#exampleModal" style="text-decoration: none;" href="#"><p class='p-small'>Kaos Anime Doraemon Murah Sekali</p></a>
+                        <span class='price'>Rp. 98.000</span>
+                        </div>
+
+                        
+                    </div>
+                </div> <!-- end of col -->
+                <div class="col-lg-4 col-md-6 col-md-12 col-6" id="catalog-product">
+                    <div class="catalog">
+                        <div class="mb-1">
+                            <a href="#" data-toggle="modal" data-target="#exampleModal"><img class="img-catalog" src="../web_download/images/old_tshirt.jpg"></a>
+                        </div>
+                        <div class="info-title mb-2">
+                        <a data-toggle="modal" data-target="#exampleModal" style="text-decoration: none;" href="#"><p class='p-small'>Kaos Anime Doraemon Murah Sekali</p></a>
+                        <span class='price'>Rp. 98.000</span>
+                        </div>
+
+                        
+                    </div>
+                </div> <!-- end of col -->
+
+                <div class="col-lg-4 col-md-6 col-md-12 col-6" id="catalog-product">
+                    <div class="catalog">
+                        <div class="mb-1">
+                            <a href="#" data-toggle="modal" data-target="#exampleModal"><img class="img-catalog" src="../web_download/images/old_tshirt.jpg"></a>
+                        </div>
+                        <div class="info-title mb-2">
+                        <a data-toggle="modal" data-target="#exampleModal" style="text-decoration: none;" href="#"><p class='p-small'>Kaos Anime Doraemon Murah Sekali</p></a>
+                        <span class='price'>Rp. 98.000</span>
+                        </div>
+
+                        
+                    </div>
+                </div> <!-- end of col -->
+
+                <div class="col-lg-4 col-md-6 col-md-12 col-6" id="catalog-product">
+                    <div class="catalog">
+                        <div class="mb-1">
+                            <a href="#" data-toggle="modal" data-target="#exampleModal"><img class="img-catalog" src="../web_download/images/old_tshirt.jpg"></a>
+                        </div>
+                        <div class="info-title mb-2">
+                        <a data-toggle="modal" data-target="#exampleModal" style="text-decoration: none;" href="#"><p class='p-small'>Kaos Anime Doraemon Murah Sekali</p></a>
+                        <span class='price'>Rp. 98.000</span>
+                        </div>
+
+                        
+                    </div>
+                </div> <!-- end of col -->
+                
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        
+                        <div style="padding:0px;" class="modal-body mb-4">
+                            <img style="vertical-align: baseline;" class="img-catalog-modal" src="../web_download/images/old_tshirt.jpg">
+                            <div class="info-title-modal mb-4">
+                                <p style="margin-bottom: 0.2em;" class='p-medium'>Kaos Anime Doraemon Murah Sekali</p>
+                                <span class='price'>Rp. 98.000</span>
+                            </div>
+                            <button type="button" class="btn btn-solid-sm">Beli Via Whatsapp</button>
+                            <button type="button" class="btn btn-solid-sm">Beli Via Marketplace</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div> <!-- end of row -->
+            <!--END OF VAR PRODUCT CATALOG -->
+        </div> <!-- end of container -->
+    </div>
+
+
+
+    <!-- end of testimonials -->
+
+    <div class="slider-1 pt-0 pb-0">
+        <div class="bgfootermobile">
+            <div class="container">
+                <!-- VAR CONTENT_5 -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h4 style="color: white;" class="h2-heading mb-5">Dapatkan DISKON <span style="color: red;">20%</span> <br>Khusus untuk minggu ini!!!<br>Hanya untuk 3
+                           pembeli pertama </h4>
+                        <div style="margin: auto;text-align: center;">
+                            <a id="cta_free_open" class="btn-solid-lg" href="#" class="popup-with-move-anim"
+                                data-toggle="modal" data-target="#exampleModal">Ambil Kaos Sekarang!!!</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- END OF VAR CONTENT_5 -->
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalGratis" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="pt-2 pb-2 pr-2 pl-2">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-6 offset-xl-3">
+                                <div class="text-box mt-3 mb-5">
+                                    <div id="showform">
+                                        <p style="text-align: center;" class="mb-4">Isi nama anda dan dapatkan sample
+                                            GRATIS!!!</p>
+                                        <!-- Sign Up Form -->
+                                        <form id="reg_free_sample">
+                                            <div class="form-group">
+                                                <input type="text" name="form_field_1" class="form-control-input"
+                                                    id="name" required="">
+                                                <label class="label-control" for="form_field_1">Nama</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="email" name="form_field_2" class="form-control-input"
+                                                    id="email" required="">
+                                                <label class="label-control" for="form_field_2">Email</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="number" name="form_field_3" class="form-control-input"
+                                                    id="mobile" required="">
+                                                <label class="label-control" for="form_field_3">No HP</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="g-recaptcha"
+                                                    data-sitekey="6LfZM-UcAAAAAO9uCaMiFE3PlF1wKgDAw1_6B85I"></div>
+                                            </div>
+                                            <input type="hidden" name="form_field_4" class="form-control-input"
+                                                value="Hardbox">
+                                            <input type="hidden" id="form_field_5" name="form_field_5"
+                                                class="form-control-input" value="">
+                                            <div class="form-group">
+                                                <button id="cta_free_submit" type="submit"
+                                                    class="form-control-submit-button">Kirim</button>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <div id="hideform">
+                                        <div class="alert alert-success" role="alert">
+                                            Terima kasih atas pastisipasi anda, tim spesialis kami akan segera
+                                            menghubungi anda!
+                                        </div>
+                                    </div>
+
+                                    <!-- end of sign up form -->
+
+                                </div> <!-- end of text-box -->
+                            </div> <!-- end of col -->
+                        </div> <!-- end of row -->
+                    </div> <!-- end of container -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="row justify-content-md-center mt-1">
+                <div class="col-lg-12">
+                        <h6>Tersedia di</h6>
+  
+                            <a id="cta_free_open" class="btn-solid-sm-tokped" href="#" data-toggle="modal" data-target="#exampleModal">Tokopedia</a>
+                            <a id="cta_free_open" class="btn-solid-sm-shopee" href="#" data-toggle="modal" data-target="#exampleModal">Shopee</a>
+
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of footer -->
+    <!-- end of footer -->
+
+
+    <!-- Copyright -->
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="p-small">Copyright©<a href="#">isamu.id</a></p>
+                </div> <!-- end of col -->
+            </div> <!-- enf of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of copyright -->
+    <!-- end of copyright -->
+
+
+    <!-- Scripts -->
+    <script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
+    <script src="js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
+    <script src="js/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
+    <script src="js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
+    <script src="js/scripts.js"></script> <!-- Custom scripts -->
+</body>
+
+</html>

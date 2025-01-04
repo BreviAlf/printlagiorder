@@ -1,0 +1,4 @@
+[2024-09-18]
+*auto add batch name with B prefix, auto increment B-01 - B-99
+*change batch method
+*add rename spk directory (adding batch name)

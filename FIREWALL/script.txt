@@ -1,0 +1,7 @@
+
+// FOR ADDING RULES
+while read line; do sudo ufw deny from $line; done < china-firewall.txt
+
+
+// FOR DELETE RULES
+while read line; do sudo ufw delete deny from $line; done < china-firewall.txt

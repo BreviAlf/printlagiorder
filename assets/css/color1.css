@@ -1,0 +1,214 @@
+#scrollUp i,.demo-thumb .single-thumb a span,.site-header .button:hover,.site-header .nav li a::before,.site-header .button:before,.work .single-work:hover .serial span,.testimonials .single-testimonial:before,.testimonials .owl-dots .owl-dot span,.main-sidebar .single-widget .title::before,.main-sidebar .search .button:hover,.main-sidebar .side-tags .tag a:hover,.main-sidebar .newsletter .letter-inner .form-inner a,.blog-single .share-social .content-tags .tag-inner li a:hover,.blog-single .comments .comment-title:before,.blog-single .reply .reply-title:before,.contact-us .single-head.overlay:before,.error-page .search-form .btn,.section-title h2:before,.breadcrumbs,.pricing-table .single-table .popular{
+	background:#ce2127;
+}
+.single-team .info-head:before{
+	background:#ffffff;
+}
+
+.btn-primary:hover{
+	background:#ce2127 !important;
+}
+.demo-section.overlay:before,.hero-header,.product-counter-section,.get-started{
+	background: linear-gradient(45deg,#ce2127,#ce2127);
+}
+.site-header .social-contact ul li a:hover,.site-header .button,.home-v3 .owl-carousel .owl-nav div:hover,.services-area .short-title,.work .single-work .serial span,.faq-section .simple-card .btn-link:hover,.blog .single-news .news-body h2:hover a,.main-sidebar .categor-list li a:hover,.main-sidebar .single-post .content h5 a:hover,.blog-single .blog-meta .author i,.blog-single .blog-meta span a i,.blog-single .blog-meta span a:hover,.blog-single blockquote i,.blog-single .single-comment .content a:hover,.contact-us .title h4,.contact-us .single-info i,.get-started .btn,.error-page .error-inner h1,.mail-seccess .success-inner h1,.footer .single-footer.f-link li a:hover,.footer .footer-social li a:hover,.single-team .info-box .name a,.footer .single-footer.f-link li a:hover{
+	color:#ADD8E6;
+}
+.hero-header .btn:hover,.hero-header .btn.primary,.blog-single .single-comment .content .btn:hover{
+	color:#ce2127 !important;
+}
+.preloader-spinner,.testimonials .owl-dots .owl-dot.active span,.testimonials .owl-dots .owl-dot:hover span{
+	border-color:#ADD8E6;
+}
+.blog-single blockquote{
+	border-left-color:#ADD8E6;
+}
+@media screen and (min-width: 601px) {
+  div.autotext {
+    height: 25px;
+    line-height: 100%;
+  }
+  div.autotext-price {
+    height: 25px;
+  }
+   div.autotext-smaller {
+    height: 25px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  div.autotext {
+    height: 23px;
+    line-height: 200%;
+  }
+  div.autotext-price {
+    height: 25px;
+  }
+    div.autotext-smaller {
+    height: 16px;
+    margin-bottom: 10px;
+  }
+}
+.wrapper {
+		  max-width: 500px;
+		  margin: 9px auto;
+		}
+
+		.demo-1 {
+		  overflow: hidden;
+		  display: -webkit-box;
+		  -webkit-line-clamp: 1;
+		  -webkit-box-orient: vertical;
+		}
+
+	.center {
+      text-align: center;
+      }
+     .left1 {
+      text-align: left;
+      }
+           .right1 {
+      text-align: right;
+      }
+	.float{
+		position:fixed;
+		width:60px;
+		height:60px;
+		bottom:11px;
+		right:60px;
+		background-color:#25d366;
+		color:#FFF;
+		border-radius:50px;
+		text-align:center;
+	  	font-size:30px;
+		box-shadow: 2px 2px 3px #999;
+	  	z-index:100;
+	}
+
+	.my-float {
+		margin-top:16px;
+	}
+	.zoomable{
+	    width: 359px;
+	    display: block;
+	    transition: transform .8s;
+	    margin-left: auto;
+	    margin-right: auto;
+	 }  
+	.zoomable:hover {
+	  	transform: scale(1.3); 
+	}
+	.zoomables{
+	    width: 359px;
+	    display: block;
+	    transition: transform .8s;
+	    margin-left: auto;
+	    margin-right: auto;
+	    border-radius:10px;
+	 } 
+     
+/*======================================
+	Start Team CSS
+========================================*/  
+.title-line{
+	margin-bottom:40px;
+}
+.single-team {
+	margin-top: 30px;
+	position:relative;
+	-webkit-transition: all 500ms ease;
+	-moz-transition: all 500ms ease;
+	transition: all 500ms ease;
+	display: inline-block;
+	overflow:hidden;
+	text-align:center;
+}
+.single-team .info-head {
+	padding: 35px 30px;
+	background:#F5F8FF;
+	position:relative;
+	z-index:2;
+	-webkit-transition:all 0.4s ease;
+	-moz-transition:all 0.4s ease;
+	transition:all 0.4s ease;
+}
+.single-team .info-head:before{
+	position:absolute;
+	content:"";
+	left:0;
+	top:0;
+	height:0%;
+	width:100%;
+	background:#f34444;
+	z-index:-1;
+	opacity:0;
+	visibility:hidden;
+	-webkit-transition:all 0.4s ease;
+	-moz-transition:all 0.4s ease;
+	transition:all 0.4s ease;
+}
+.single-team:hover .info-head:before{
+	opacity:1;
+	visibility:visible;
+	height:100%;
+}
+.single-team:hover .info-head{
+	border-color:transparent;
+}
+.single-team .image img{
+	height:100%;
+	width:100%;
+}
+.single-team .info-box {
+	text-align:center;
+}
+.single-team .info-box .name {
+	display: block;
+	font-size: 17px;
+	color: #333;
+	margin-bottom: 3px;
+	text-transform:capitalize;
+}
+.single-team:hover .info-box .name{
+	color:#fff;
+}
+.single-team .info-box .name a{
+	font-weight: 400;
+}
+.single-team:hover .info-box .name a{
+	color:#fff;
+}
+.single-team .info-box .designation{
+	color:#aaa;
+	font-size:13px;
+	-webkit-transition:all 0.4s ease;
+	-moz-transition:all 0.4s ease;
+	transition:all 0.4s ease;
+}
+.single-team:hover .info-box .designation{
+	color:#fff;
+}
+.single-team .social-links {
+	-webkit-transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    transition: all 500ms ease;
+	margin-top:15px;
+}
+.single-team .social-links .social li{
+	display:inline-block;
+	margin-right:15px;
+}
+.single-team .social-links .social li:last-child{
+	margin-right:0px;
+}
+.single-team .social-links .social li a {
+	color: #666;
+	display: block;
+	font-size: 14px;
+}
+.single-team:hover .social-links .social li a{
+	color:#fff;
+}
+/*======================================
+	End Team CSS
+========================================*/ 

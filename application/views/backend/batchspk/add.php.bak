@@ -1,0 +1,201 @@
+<script>
+  function SearchProduct() {
+    var sku_mp = $("#spk_prod_mp_sku").val();
+    $.ajax({
+      url: '<?php echo site_url() . 'backend/spk/AjaxSearchBySKU' ?>',
+      cache: false,
+      dataType: "json",
+      type: 'POST',
+      data: {
+        sku_mp: sku_mp
+      },
+      success: function(json) {
+        //data = JSON.parse(json);
+        var json_string = eval(json);
+        stat = json_string.stat;
+
+          if(stat == 1){
+            $("#spk_prod_name").val(json_string.prod_name);
+            $("#spk_prod_name_mp").val(json_string.prod_name_mp);
+            $("#spk_prod_id").val(json_string.prod_id);
+          }else{
+            $("#spk_prod_name").val('');
+            $("#spk_prod_name_mp").val('');
+            $("#spk_prod_id").val('');
+            $("#ModalSku").modal('show');
+          }
+        },
+      failure: function(errMsg) {
+        alert(errMsg);
+      }
+    });
+  }
+
+  function GoToProduct() {
+    window.open("<?php echo site_url() . 'backend/product/'; ?>", "_self");
+  }
+
+  function Skip() {
+    $("#ModalSku").modal('hide');
+  }
+</script>
+
+
+
+<div class="modal fade" id="ModalSku" role="dialog">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Warning</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div id="load_data_image">
+          <p class='p-large'>SKU Belum Terdaftar. Siahkan tambahkan SKU Produk melalui halaman produk</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" onclick="Skip()" class="btn btn-warning">Skip Proses</button>
+        <button type="button" onclick="GoToProduct()" class="btn btn-primary">Ke Halaman Produk</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><?php echo $title; ?></h5>
+        <?php echo $this->session->flashdata('message_type'); ?>
+        <div class="d-flex mt-4 flex-row-reverse">
+          <div class="p-2">
+
+          </div>
+        </div>
+        <form action="<?php echo site_url() ?>backend/spk/add" method="post" class="row g-3 needs-validation" enctype="multipart/form-data" novalidate>
+          <div class="row">
+            <div class="col-lg-6">
+
+              <div class="row mb-3">
+                <label for="spk_no" class="col-sm-3 col-form-label">No Invoice MP</label>
+                <div class="col-sm-9">
+                  <div class="input-group has-validation">
+                    <?php echo form_error('spk_inv_mp', '<div class="alert alert-danger">', '</div>'); ?>
+                    <input type="text" name="spk_inv_mp" id="spk_inv_mp" class="form-control" required>
+                    <div class="invalid-feedback">Input Invoice Marketplace</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <label for="spk_no" class="col-sm-3 col-form-label">SKU Marketplace</label>
+                <div class="col-sm-9">
+                <input id="spk_prod_id" type="hidden" name="spk_prod_id" id="spk_prod_id" class="">
+                  <div class="input-group has-validation">
+                    <?php echo form_error('spk_prod_mp_sku', '<div class="alert alert-danger">', '</div>'); ?>
+                    <input type="text" name="spk_prod_mp_sku" id="spk_prod_mp_sku" class="form-control" required>
+                    <button onclick="SearchProduct()" class="btn btn-primary float-right" type="button">Cari</button>
+                    <div class="invalid-feedback">Input SKU Marketplace</div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label for="spk_prod_name" class="col-sm-3 col-form-label">Product Name</label>
+                <div class="col-sm-9">
+                  <input id="spk_prod_name" type="text" name="spk_prod_name" id="spk_prod_name" class="form-control">
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <label for="spk_prod_name_mp" class="col-sm-3 col-form-label">Product Name MP</label>
+                <div class="col-sm-9">
+                  <input id="spk_prod_name_mp" type="text" name="spk_prod_name_mp" id="spk_prod_name_mp" class="form-control">
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <label for="spk_finish_size" class="col-sm-3 col-form-label">Ukuran Jadi</label>
+                <div class="col-sm-9">
+                  <input type="text" name="spk_finish_size" id="spk_finish_size" class="form-control">
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <label for="spk_qty_finish" class="col-sm-3 col-form-label">Jumlah Jadi</label>
+                <div class="col-sm-9">
+                  <input type="text" name="spk_qty_finish" id="spk_qty_finish" class="form-control">
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <label for="spk_material_name" class="col-sm-3 col-form-label">Nama Bahan</label>
+                <div class="col-sm-9">
+              
+                  <?php echo DropdownMaterial(FALSE, 'spk_material_id',FALSE); ?>
+         
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <label for="spk_qty_material" class="col-sm-3 col-form-label">Jumlah Bahan</label>
+                <div class="col-sm-9">
+                  <input type="text" name="spk_qty_material" id="spk_qty_material" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="row mb-3">
+                <label for="inputText" class="col-sm-3 col-form-label">Laminasi</label>
+                <div class="col-sm-9">
+                  <?php echo DropdownLaminasi(FALSE, 'spk_lamination'); ?>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label for="inputText" class="col-sm-3 col-form-label">Sisi Laminasi</label>
+                <div class="col-sm-9">
+                  <?php echo DropdownSisiLaminasi(FALSE, 'spk_lamination_side'); ?>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label for="prod_desc" class="col-sm-3 col-form-label">Instruksi Khusus <small>(kode template/nama usaha/no hp/IG)</small></label>
+                <div class="col-sm-9">
+                  <textarea name="spk_instruction" class="form-control" style="height: 100px"></textarea>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label for="inputNumber" class="col-sm-3 col-form-label">Gambar</label>
+                <div class="col-sm-9">
+                  <input class="form-control" type="file" name="file_image" id="file_image">
+                </div>
+              </div>
+
+              
+              <div class="row mb-3">
+                <label for="inputText" class="col-sm-3 col-form-label">Store Name</label>
+                <div class="col-sm-9">
+                  <?php echo DropdownStore(FALSE, 'spk_store_name'); ?>
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <label for="spk_qty_finish" class="col-sm-3 col-form-label">Tanggal Deadline</label>
+                <div class="col-sm-9">
+                  <input type="datetime-local" name="spk_datetime_out" id="spk_datetime_out" class="form-control">
+                </div>
+              </div>
+           
+            
+
+              <div class="d-flex mt-2 flex-row-reverse">
+                <div class="p-2">
+                  <button class="btn btn-primary float-right" type="submit">Save</button>
+                  <a href="<?php echo site_url(); ?>backend/spk/" class="btn btn-warning float-right">Cancel</a>
+                </div>
+              </div>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

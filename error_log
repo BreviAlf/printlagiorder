@@ -1,0 +1,12 @@
+[21-Aug-2011 23:32:20] PHP Fatal error:  Call to undefined function  jin_get_address() in /home/kampus/public_html/albanaatshop/application/views/produk_view.php on line 60
+[21-Aug-2011 23:32:21] PHP Fatal error:  Call to undefined function  jin_get_address() in /home/kampus/public_html/albanaatshop/application/views/produk_view.php on line 60
+[21-Aug-2011 23:32:21] PHP Fatal error:  Call to undefined function  jin_get_address() in /home/kampus/public_html/albanaatshop/application/views/produk_view.php on line 60
+[21-Aug-2011 23:32:47] PHP Fatal error:  Call to undefined function  jin_get_address() in /home/kampus/public_html/albanaatshop/application/views/produk_view.php on line 60
+[21-Aug-2011 23:32:59] PHP Fatal error:  Call to undefined function  jin_get_address() in /home/kampus/public_html/albanaatshop/application/views/produk_view.php on line 60
+[21-Aug-2011 23:33:00] PHP Fatal error:  Call to undefined function  jin_get_address() in /home/kampus/public_html/albanaatshop/application/views/produk_view.php on line 60
+[21-Aug-2011 23:33:00] PHP Fatal error:  Call to undefined function  jin_get_address() in /home/kampus/public_html/albanaatshop/application/views/produk_view.php on line 60
+[21-Aug-2011 23:33:57] PHP Fatal error:  Call to undefined function  jin_get_address() in /home/kampus/public_html/albanaatshop/application/views/produk_view.php on line 60
+[21-Aug-2011 23:33:58] PHP Fatal error:  Call to undefined function  jin_get_address() in /home/kampus/public_html/albanaatshop/application/views/produk_view.php on line 60
+[21-Aug-2011 23:33:58] PHP Fatal error:  Call to undefined function  jin_get_address() in /home/kampus/public_html/albanaatshop/application/views/produk_view.php on line 60
+[22-Aug-2011 00:19:28] PHP Fatal error:  Call to undefined function  getpage() in /home/kampus/public_html/albanaatshop/application/controllers/backend/produk.php on line 426
+[22-Aug-2011 00:21:03] PHP Fatal error:  Call to undefined function  getpage() in /home/kampus/public_html/albanaatshop/application/controllers/backend/bank.php on line 100
