@@ -9,9 +9,7 @@ class Login extends CI_Controller {
 	function index()
 	{
 		if($this->session->userdata('user_id')):
-			$data['title'] = 'Dashboard';
-			$data['template'] = 'dashboard';
-			$this->load->view('index',$data);
+			redirect('backend/spk');
 		else:
 			$data['title'] = 'Login';
 			$data['notif'] = "";

@@ -168,7 +168,7 @@
 
 
   function child_modal_template_ver2(parent_SKU_Varian, Child_name, prod_var_parent_id) {
-    document.getElementById("modal_title").innerText = "Tambah Child Varian";
+    document.getElementById("modal_title").innerText = "Tambah Bahan Terkait";
     document.getElementById("Parent_Checkbox").hidden = true;
     document.getElementById("Parent_Checkbox").disabled  = true;
     document.getElementById("Parent_Checkbox_Label").hidden = true;
@@ -244,10 +244,14 @@ function parent_toggle(){
     document.getElementsByName("prod_var_lamination")[0].disabled = true;
     document.getElementsByName("prod_var_lamination_side")[0].disabled = true;
     document.getElementsByName("prod_var_cutting")[0].disabled = true;
+    document.getElementsByName("prod_var_material_id")[0].disabled = true;
+    document.getElementById("paper_size_id").disabled = true;
     document.getElementsByName("prod_var_print_side")[0].name = "prod_var_print_side_disabled";
     document.getElementsByName("prod_var_lamination")[0].name = "prod_var_lamination_disabled";
     document.getElementsByName("prod_var_lamination_side")[0].name = "prod_var_lamination_side_disabled";
     document.getElementsByName("prod_var_cutting")[0].name = "prod_var_cutting_disabled";
+    document.getElementsByName("prod_var_material_id")[0].name = "prod_var_material_id_disabled";
+    document.getElementById("paper_size_id").id = "paper_size_id_disabled";
     
     finishing_checks = document.getElementsByName("cfin[]");
     for (var i = 0; i < finishing_checks.length; i++) {
@@ -270,6 +274,16 @@ function parent_toggle(){
     <select name="prod_var_cutting" class="form-select">
     <option value="No Cut">No Cut</option>
     </select>
+
+    <select id="material_id" class="form-select" name="prod_var_material_id">
+    <option value="54">No Material</option>
+    </select>
+
+    <select id="paper_size_id" class="form-select" name="prod_var_paper_size_id">
+    <option value="5">-</option>
+    </select>
+
+    <input class="form-check-input" type="checkbox" name="cfin[]" value="9" id="gridCheck1">
     `;
     document.getElementById("right_hidden").innerHTML = teks;
 
@@ -282,11 +296,15 @@ function parent_toggle(){
     document.getElementsByName("prod_var_lamination_disabled")[0].name = "prod_var_lamination";
     document.getElementsByName("prod_var_lamination_side_disabled")[0].name = "prod_var_lamination_side";
     document.getElementsByName("prod_var_cutting_disabled")[0].name = "prod_var_cutting";
-
+    document.getElementsByName("prod_var_material_id_disabled")[0].name = "prod_var_material_id";
+    document.getElementById("paper_size_id_disabled").id = "paper_size_id";
+    
     document.getElementsByName("prod_var_print_side")[0].disabled = false;
     document.getElementsByName("prod_var_lamination")[0].disabled = false;
     document.getElementsByName("prod_var_lamination_side")[0].disabled = false;
     document.getElementsByName("prod_var_cutting")[0].disabled = false;
+    document.getElementsByName("prod_var_material_id")[0].disabled = false;
+    document.getElementById("paper_size_id").disabled = false;
     for (var i = 0; i < finishing_checks.length; i++) {
       finishing_checks[i].disabled = false;
     }
@@ -299,11 +317,15 @@ function default_modal() {
     document.getElementsByName("prod_var_lamination_disabled")[0].name = "prod_var_lamination";
     document.getElementsByName("prod_var_lamination_side_disabled")[0].name = "prod_var_lamination_side";
     document.getElementsByName("prod_var_cutting_disabled")[0].name = "prod_var_cutting";
+    document.getElementsByName("prod_var_material_id_disabled")[0].name = "prod_var_material_id";
+    document.getElementById("paper_size_id_disabled").id = "paper_size_id";
 
     document.getElementsByName("prod_var_print_side")[0].disabled = false;
     document.getElementsByName("prod_var_lamination")[0].disabled = false;
     document.getElementsByName("prod_var_lamination_side")[0].disabled = false;
     document.getElementsByName("prod_var_cutting")[0].disabled = false;
+    document.getElementsByName("prod_var_material_id")[0].disabled = false;
+    document.getElementById("paper_size_id").disabled = false;
     for (var i = 0; i < finishing_checks.length; i++) {
       finishing_checks[i].disabled = false;
     }

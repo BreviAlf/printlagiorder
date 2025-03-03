@@ -43,6 +43,7 @@
 $route['default_controller'] = "login";
 //$route['backend'] = "backend/dashboard";
 $route['scaffolding_trigger'] = "";
+$route['404_override'] = 'login';
 
 
 /* End of file routes.php */

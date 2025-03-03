@@ -1159,6 +1159,7 @@ class Spk extends CI_Controller {
 			
 			$i = 1;
 			$j = 7;
+			$arr_child_spk_length = count($arr_child_spk);
 			foreach ($arr_child_spk as $child_spk) {
 
 				$pdf->SetFont('helvetica','B',8);
@@ -1204,7 +1205,7 @@ class Spk extends CI_Controller {
 				$pdf->Ln(0.6);
 
 				// 3 in 1st page, 4 in sencond n other
-				if($i == 3){
+				if($i == 3 && $arr_child_spk_length > 3){
 					$pdf->AddPage();
 				}
 				if($i == $j){
@@ -1385,6 +1386,7 @@ class Spk extends CI_Controller {
 			
 			$i = 1;
 			$j = 7;
+			$arr_child_spk_length = count($arr_child_spk);
 			foreach ($arr_child_spk as $child_spk) {
 				$pdf->SetFont('helvetica','B',8);
 				$pdf->Cell(2, 0.5, $child_spk->prod_var_name,0,'LR','L');
@@ -1427,8 +1429,8 @@ class Spk extends CI_Controller {
 				$pdf->SetFont('helvetica','',5);
 				$pdf->Cell(7.5, 0.5,$spk_catatan,1,'LR','L');
 				$pdf->Ln(0.6);
-
-				if($i == 3){
+				
+				if($i == 3 && $arr_child_spk_length > 3){
 					$pdf->AddPage();
 				}
 				if($i == $j){
@@ -1438,7 +1440,7 @@ class Spk extends CI_Controller {
 				$i++;
 			} 
 			$pdf->write(0.4, 'SISPRINT | Nama File : '.$file_pdf.' | Printed on : '.mysqlDateNow().' | Created by : '.$this->session->userdata('user_display_name').' | '.$pdf->PageNo());
-
+			
 
 			
 			if($char > 80)
@@ -1683,7 +1685,7 @@ class Spk extends CI_Controller {
 		// cetak ulang untuk store
 
 		//A set
-		$pdf->Ln();
+		$pdf->Ln(0.3);
 		$pdf->SetFont('helvetica','',6);
 		$pdf->Cell(1.5, 0.5, 'Date In',1,'LR','L');
 		$pdf->SetFont('helvetica','',6);
@@ -1745,12 +1747,25 @@ class Spk extends CI_Controller {
 		$pdf->Cell(2.5, 0.5, $row_spk->spk_store_name,1,'LR','L');
 		$pdf->Cell(0.38, 0.5, '',0,'LR','L');
 		$pdf->SetFont('helvetica','',7);
+		
 		$pdf->Cell(2, 0.7, $row_spk->spk_inv_mp.''.$cust_name,0,'LR','L');
 
+		$pdf->Ln(0.6);
+		$pdf->SetFont('helvetica','',6);
+		$pdf->Cell(1.5, 0.0, '',0,'LR','L');
+		$pdf->SetFont('helvetica','',6);
+		$pdf->Cell(2.5, 0.0, '',0,'LR','L');
+		$pdf->Cell(0.38, 0.0, '',0,'LR','L');
+		$pdf->SetFont('helvetica','',6);
+		if($row_spk->spk_inv_mp_related){
+			$pdf->Cell(2, 0.1,'Ref# : '.$row_spk->spk_inv_mp_related.''.$cust_name,0,'LR','L');
+		}else{
+			$pdf->Cell(2, 0.1,'',0,'LR','L');
+		}
 
 		$pdf->setFillColor(0,0,0); 
 		$pdf->Code128(5,8.6,$row_spk->spk_no,5,0.7);
-		$pdf->Ln(1);
+		$pdf->Ln(0.6);
 		
 		$pdf->Code128(5,10,$row_spk->spk_inv_mp,5,0.5);
 		$pdf->Ln(-0.3);

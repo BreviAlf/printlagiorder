@@ -143,7 +143,7 @@ class report extends CI_Controller {
 								FROM 
 								tb_spk sp
 								JOIN tb_user u ON sp.spk_user = u.user_id
-								WHERE sp.spk_parent_flag <> 2 AND (sp.spk_datetime_in BETWEEN '$t_begin' AND '$t_end') ORDER BY sp.spk_datetime_in ASC;
+								WHERE (sp.spk_parent_flag = 1 OR sp.spk_parent_flag IS NULL) AND (sp.spk_datetime_in BETWEEN '$t_begin' AND '$t_end') ORDER BY sp.spk_datetime_in ASC;
 						")->result_array();
 
 		$arr_csv[] = array("NO_SPK",

@@ -566,25 +566,16 @@ class BatchSpk extends CI_Controller {
 		$qr = $this->db->get();
 		$arr_spk = $qr->result_array();
 
-		// if($arr_spk[0]['spk_parent_flag'])
+
 		$arr_parent_id =[];
 		$ada_parent = false;
 		foreach ($arr_spk as $parent_check) {
-			// echo "parent_check : <br>";
-			// print_r($parent_check["spk_parent_flag"]);
-			// echo "<br><br>";
 			if($parent_check["spk_parent_flag"] == 1){
 					array_push($arr_parent_id,$parent_check["spk_parent_id"]);
 					$ada_parent = true;
 			}
 		}
 			
-		// print_r($arr_spk);
-		// echo "<br><br><br>";
-		// echo "arr_parent_id : <br>";
-		// print_r($arr_parent_id);
-		// echo "<br><br>";
-		// exit;
 		
 		if ($ada_parent){
 			$sql_multiple_parent_id = "";
@@ -594,40 +585,25 @@ class BatchSpk extends CI_Controller {
 			$sql_multiple_parent_id2 = " ( " . $sql_multiple_parent_id . " ) ";
 
 			$qr = $this->db->select('*');
-			// $qr = $this->db->select('spk_material_name,spk_print_side,spk_qty_material');
 			$qr = $this->db->from('tb_spk');
-			// $qr = $this->db->join('tb_spk','tb_batch_spk_detail.batch_spk_det_spk_no = tb_spk.spk_no','left');
-			// $qr = $this->db->join('tb_user', 'tb_spk.spk_user = tb_user.user_id', 'left');
 			$qr = $this->db->where('spk_parent_flag',1);
 			$qr = $this->db->where( $sql_multiple_parent_id2 );
-			// $qr = $this->db->order_by('tb_batch_spk_detail.batch_spk_det_spk_inv_mp','asc');
 			$qr = $this->db->get();
 			$arr_spk_parent = $qr->result_array();
-			// echo "SPK PARENT :<br>";
-			// print_r($arr_spk_parent);
-			// echo "<br><br><br>";
 
 			$qr = $this->db->select('*');
-			// $qr = $this->db->select('spk_material_name,spk_print_side,spk_qty_material');
 			$qr = $this->db->from('tb_spk');
-			// $qr = $this->db->join('tb_spk','tb_batch_spk_detail.batch_spk_det_spk_no = tb_spk.spk_no','left');
-			// $qr = $this->db->join('tb_user', 'tb_spk.spk_user = tb_user.user_id', 'left');
 			$qr = $this->db->where('spk_parent_flag',2);
 
 			$qr = $this->db->where( $sql_multiple_parent_id2 );
 
-
-			// $qr = $this->db->order_by('tb_batch_spk_detail.batch_spk_det_spk_inv_mp','asc');
 			$qr = $this->db->get();
 			$arr_spk_child = $qr->result_array();
-			// echo "SPK CHILD :<br>";
-			// print_r($arr_spk_child);
+
 		}
 
 		$file_pdf = $row_batch->batch_spk_no;
 
-    // $parent_id = $arr_parent_id[0];
-		// group by material	
 		$qr_material = $this->db->query("SELECT
 		tb_spk.spk_material_name,tb_spk.spk_print_side, SUM(tb_spk.spk_qty_material) as total
 		FROM
@@ -643,12 +619,8 @@ class BatchSpk extends CI_Controller {
 		");
 
 		$arr_material = $qr_material->result_array();
-		// echo "arr_material : <br>";
-		// print_r($arr_material);
-		// echo "<br><br>";
 
 		// child untuk material
-		
 		if($ada_parent){
 		$qr_child_material = $this->db->query("SELECT
 		spk_material_name,spk_print_side, SUM(spk_qty_material) as total
@@ -663,10 +635,6 @@ class BatchSpk extends CI_Controller {
 
 
 		$arr_child_material = $qr_child_material->result_array();
-		// echo "<br><br>";
-		// echo "arr_child_material : <br>";
-		// print_r($arr_child_material);
-		// echo "<br><br>";
 
 				// push children in
 		$i = 0;
@@ -693,10 +661,6 @@ class BatchSpk extends CI_Controller {
 	foreach  ($arr_child_material as $child) {
 		array_push($arr_material, $child);
 	}
-	
-	// echo '<br> after push child arr_material:<br>';
-	// print_r($arr_material);
-	// echo '<br><br>';
 
 
 		// parent untuk material
@@ -712,9 +676,6 @@ class BatchSpk extends CI_Controller {
 
 
 		$arr_parent_material = $qr_parent_material->result_array();
-		// echo "arr_parent_material : <br>";
-		// print_r($arr_parent_material);
-		// echo "<br><br>";
 
 		$i=0;
 		foreach ($arr_material as $material ) {
@@ -741,10 +702,7 @@ class BatchSpk extends CI_Controller {
 		}
 		}
 
-		// echo '<br> after pop parent arr_material FINAL Material :<br>';
-		// print_r($arr_material);
-		// echo '<br><br>';
-
+		
 		// cutting---------------------------------------------------------------------------------------------
 		// echo "<hr>";
 		$qr_cutting = $this->db->query("SELECT
@@ -761,10 +719,6 @@ class BatchSpk extends CI_Controller {
 		tb_spk.spk_cutting");
 		$arr_cutting = $qr_cutting->result_array();
 
-		// echo "<br><br>";
-		// echo "arr_cutting :<br>";
-		// print_r($arr_cutting);
-
 		if($ada_parent){
 		$qr_child_cutting = $this->db->query("SELECT
 		spk_cutting, SUM(spk_qty_material) as total
@@ -777,10 +731,6 @@ class BatchSpk extends CI_Controller {
 		");
 
 		$arr_child_cutting = $qr_child_cutting->result_array();
-		// echo "<br><br>arr_child_cutting : <br>";
-		// print_r($arr_child_cutting);
-		// echo "<br><br>";
-		// echo"<br>";
 
 		$i = 0;
 		foreach ($arr_cutting as $cutting ) {
@@ -789,21 +739,14 @@ class BatchSpk extends CI_Controller {
 				if ($child['spk_cutting'] == $cutting['spk_cutting']){
 					$arr_cutting[$i]['total'] = $arr_cutting[$i]['total'] + $child['total'];
 					array_splice($arr_child_cutting, $j, 1);
-				} else { 
-					// echo $i.$j."X";
 				} 
-
 				$j++;
 			}
-			// echo '<br>';
 			$i++;
 		}
 		foreach  ($arr_child_cutting as $child) {
 			array_push($arr_cutting, $child);
 		}
-		// echo '<br> after push child arr_cutting:<br>';
-		// print_r($arr_cutting);
-		// echo '<br><br>';
 
 		// parent untuk cutting
 		$qr_parent_cutting = $this->db->query("SELECT
@@ -819,9 +762,6 @@ class BatchSpk extends CI_Controller {
 
 
 		$arr_parent_cutting = $qr_parent_cutting->result_array();
-		// echo "arr_parent_cutting : <br>";
-		// print_r($arr_parent_cutting);
-		// echo "<br><br>";
 
 		$i=0;
 		foreach ($arr_cutting as $cutting ) {
@@ -843,10 +783,7 @@ class BatchSpk extends CI_Controller {
 			}
 			$i++;
 		}
-		// echo '<br> after pop parent arr_cutting FINAL cutting :<br>';
-		// print_r($arr_cutting);
-		// echo '<br><br>';
-		}
+	}
 
 
 
@@ -1093,20 +1030,28 @@ class BatchSpk extends CI_Controller {
 			if(trim($row_spk_finish['spk_instruction'])!="")
 			{
 				$ex_finish = explode(' | ',trim($row_spk_finish['spk_instruction']));
-				$qty 	 = $row_spk_finish['spk_qty_material'];
 
-				for ($i = 0 ; $i < $qty; $i++)
-				{
-					if(count($ex_finish) > 1){
-						foreach($ex_finish as $val){
+				foreach($ex_finish as $val){
+
+					$fin_hitung = $this->db->select('fin_hitung');
+					$fin_hitung = $this->db->from('tb_finishing');
+					$fin_hitung = $this->db->where('fin_name',$val);
+					$fin_hitung = $this->db->get();
+					$row_fin_hitung = $fin_hitung->row();
+					
+					if($row_fin_hitung->fin_hitung=="LBR"){
+						$qty 	 = $row_spk_finish['spk_qty_material'];
+						for ($i = 0 ; $i < $qty; $i++){
 							$arr_f[] = trim($val);
 						}
 					}
-					else
-					{
-						$arr_f[] = trim($row_spk_finish['spk_instruction']);
-					}
 					
+					if($row_fin_hitung->fin_hitung=="PCS"){
+						$qty 	 = $row_spk_finish['spk_qty_finish'];
+						for ($i = 0 ; $i < $qty; $i++){
+							$arr_f[] = trim($val);
+						}
+					}
 				}
 			}
 			else
@@ -1114,26 +1059,36 @@ class BatchSpk extends CI_Controller {
 				$arr_f[] = array();
 			}
 		}
+
+
 		foreach ($arr_spk_child as $row_spk_finish)
 		{	
 			// explode
 			if(trim($row_spk_finish['spk_instruction'])!="")
 			{
 				$ex_finish = explode(' | ',trim($row_spk_finish['spk_instruction']));
-				$qty 	 = $row_spk_finish['spk_qty_material'];
 
-				for ($i = 0 ; $i < $qty; $i++)
-				{
-					if(count($ex_finish) > 1){
-						foreach($ex_finish as $val){
+				foreach($ex_finish as $val){
+
+					$fin_hitung = $this->db->select('fin_hitung');
+					$fin_hitung = $this->db->from('tb_finishing');
+					$fin_hitung = $this->db->where('fin_name',$val);
+					$fin_hitung = $this->db->get();
+					$row_fin_hitung = $fin_hitung->row();
+					
+					if($row_fin_hitung->fin_hitung=="LBR"){
+						$qty 	 = $row_spk_finish['spk_qty_material'];
+						for ($i = 0 ; $i < $qty; $i++){
 							$arr_f[] = trim($val);
 						}
 					}
-					else
-					{
-						$arr_f[] = trim($row_spk_finish['spk_instruction']);
-					}
 					
+					if($row_fin_hitung->fin_hitung=="PCS"){
+						$qty 	 = $row_spk_finish['spk_qty_finish'];
+						for ($i = 0 ; $i < $qty; $i++){
+							$arr_f[] = trim($val);
+						}
+					}
 				}
 			}
 			else
@@ -1141,27 +1096,34 @@ class BatchSpk extends CI_Controller {
 				$arr_f[] = array();
 			}
 		}
-
 		foreach ($arr_spk_parent as $row_spk_finish)
 		{	
 			// explode
 			if(trim($row_spk_finish['spk_instruction'])!="")
 			{
 				$ex_finish = explode(' | ',trim($row_spk_finish['spk_instruction']));
-				$qty 	 = $row_spk_finish['spk_qty_material'];
 
-				for ($i = 0 ; $i < $qty; $i++)
-				{
-					if(count($ex_finish) > 1){
-						foreach($ex_finish as $val){
+				foreach($ex_finish as $val){
+
+					$fin_hitung = $this->db->select('fin_hitung');
+					$fin_hitung = $this->db->from('tb_finishing');
+					$fin_hitung = $this->db->where('fin_name',$val);
+					$fin_hitung = $this->db->get();
+					$row_fin_hitung = $fin_hitung->row();
+					
+					if($row_fin_hitung->fin_hitung=="LBR"){
+						$qty 	 = $row_spk_finish['spk_qty_material'];
+						for ($i = 0 ; $i < $qty; $i++){
 							$arr_f_parent[] = trim($val);
 						}
 					}
-					else
-					{
-						$arr_f_parent[] = trim($row_spk_finish['spk_instruction']);
-					}
 					
+					if($row_fin_hitung->fin_hitung=="PCS"){
+						$qty 	 = $row_spk_finish['spk_qty_finish'];
+						for ($i = 0 ; $i < $qty; $i++){
+							$arr_f_parent[] = trim($val);
+						}
+					}
 				}
 			}
 			else
@@ -1171,18 +1133,65 @@ class BatchSpk extends CI_Controller {
 		}
 
 
+		// foreach ($arr_spk_child as $row_spk_finish)
+		// {	
+		// 	// explode
+		// 	if(trim($row_spk_finish['spk_instruction'])!="")
+		// 	{
+		// 		$ex_finish = explode(' | ',trim($row_spk_finish['spk_instruction']));
+		// 		$qty 	 = $row_spk_finish['spk_qty_material'];
+
+		// 		for ($i = 0 ; $i < $qty; $i++)
+		// 		{
+		// 			if(count($ex_finish) > 1){
+		// 				foreach($ex_finish as $val){
+		// 					$arr_f[] = trim($val);
+		// 				}
+		// 			}
+		// 			else
+		// 			{
+		// 				$arr_f[] = trim($row_spk_finish['spk_instruction']);
+		// 			}
+					
+		// 		}
+		// 	}
+		// 	else
+		// 	{
+		// 		$arr_f[] = array();
+		// 	}
+		// }
+
+		// foreach ($arr_spk_parent as $row_spk_finish)
+		// {	
+		// 	// explode
+		// 	if(trim($row_spk_finish['spk_instruction'])!="")
+		// 	{
+		// 		$ex_finish = explode(' | ',trim($row_spk_finish['spk_instruction']));
+		// 		$qty 	 = $row_spk_finish['spk_qty_material'];
+
+		// 		for ($i = 0 ; $i < $qty; $i++)
+		// 		{
+		// 			if(count($ex_finish) > 1){
+		// 				foreach($ex_finish as $val){
+		// 					$arr_f_parent[] = trim($val);
+		// 				}
+		// 			}
+		// 			else
+		// 			{
+		// 				$arr_f_parent[] = trim($row_spk_finish['spk_instruction']);
+		// 			}
+					
+		// 		}
+		// 	}
+		// 	else
+		// 	{
+		// 		$arr_f_parent[] = array();
+		// 	}
+		// }
+
+
 		$arr_finish_parent = array_count_values($arr_f_parent);
 		$arr_finish = array_count_values($arr_f);
-
-		// echo "<br><br> arr_f:<br>";
-		// print_r($arr_f);
-		// echo "<br><br> arr_finish:<br>";
-		// print_r($arr_finish);
-		// echo "<br><br> arr_f_parent:<br>";
-		// print_r($arr_f_parent);
-		// echo "<br><br> arr_finish_parent:<br>";
-		// print_r($arr_finish_parent);
-		// echo "<br>";
 
 		foreach ($arr_finish as $key => $value) {
 			foreach ($arr_finish_parent as $key2 => $value2) {
@@ -1196,15 +1205,7 @@ class BatchSpk extends CI_Controller {
 				}
 				
 			}
-		}
-
-		// echo "<br><br> arr_finish:<br>";
-		// print_r($arr_finish);  
-
-
-
-
-
+		}  
 
 
 		$pdf->SetFont('arial','I',5);
@@ -1218,6 +1219,7 @@ class BatchSpk extends CI_Controller {
 			$pdf->SetFont('arial','',5);
 			$pdf->Cell(4, 0.3, $key,1,'LR','L');
 			$pdf->SetFont('arial','',5);
+			// target qty -> LBR / PCS
 			$pdf->Cell(0.7, 0.3, $value,1,'LR','R');
 			$pdf->Ln();
 		}

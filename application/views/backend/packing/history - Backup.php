@@ -226,9 +226,7 @@
                     <?php if($row_pack['pack_status'] == 'Done'){
                       echo 'disabled';
                       }?>">Lanjut Scan</button>
-                    <button type="button" onclick="DoCetak(<?php echo $row_pack['pack_id']; ?>)" class="btn btn-primary btn-sm" 
-                    <?php if ($row_pack['pack_status'] != 'Done'){ echo 'disabled';} ?>
-                    >Cetak Packing List</button>
+                    <button type="button" onclick="DoCetak(<?php echo $row_pack['pack_id']; ?>)" class="btn btn-primary btn-sm">Cetak Packing List</button>
                 </td>
               </tr>
             <?php endforeach; ?>

@@ -76,7 +76,7 @@ class Product_model extends CI_Model
 			$this->db->where('material_id',$id);
 			return $this->db->get('tb_material')->row();
 		elseif($query=='all'):
-			$this->db->limit($limit,$offset);
+			// $this->db->limit($limit,$offset);
 			$this->db->order_by('material_id','desc');
 			return $this->db->get('tb_material')->result_array();
 		endif;

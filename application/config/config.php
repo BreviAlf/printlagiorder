@@ -11,7 +11,7 @@
 |	http://example.com/
 |
 */
-$config['base_url']	= "http://192.168.2.176/printlagiorder";
+$config['base_url']	= "http://192.168.8.198/printlagiorder";
 //$config['base_url']	= "http://localhost/";
 $config['title'] = "Printlagi Order";
 /*

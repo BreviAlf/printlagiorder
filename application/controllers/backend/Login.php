@@ -9,10 +9,13 @@ class Login extends CI_Controller {
 	function index()
 	{
 		if($this->session->userdata('user_id')):
-			$data['title'] = 'Dashboard';
+			// $data['title'] = 'Dashboard';
 			
-			$data['template'] = 'dashboard';
-			$this->load->view('index',$data);
+			// $data['template'] = 'dashboard';
+			// $this->load->view('index',$data);
+			$data['title'] = 'Login';
+			$data['notif'] = "";
+			$this->load->view('login',$data);
 		else:
 			$data['title'] = 'Login';
 			$data['notif'] = "";

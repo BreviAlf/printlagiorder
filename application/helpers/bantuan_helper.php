@@ -480,13 +480,14 @@ function GenUid($table,$col_id)
     $cekid=$tgl_p."00001";
 
 	$qr_check = $ci->db->query("SELECT spk_uid FROM  $table WHERE date(spk_datetime_in) ='$tgl_hari_ini' and spk_uid='$cekid'");
-
 	if($qr_check->num_rows()==0){
+		CreateLog("WARNING","NUM_ROW =" . $qr_check->num_rows() );
 		$uid = $cekid;
 	}
 	else{
 		$qr_last_id = $ci->db->query("SELECT spk_uid from $table order by spk_uid desc limit 1")->row();
 		$uid = $qr_last_id->spk_uid + 1;
+		CreateLog("INFO","UID =" . $uid );
 	}
 
 	return CheckUid($table,$uid);
@@ -498,9 +499,11 @@ function CheckUid($table,$uid)
 	$ci=& get_instance();
 	$qr_check = $ci->db->query("SELECT spk_uid FROM $table WHERE spk_uid = $uid");
 	if($qr_check->num_rows()==0){
+		CreateLog("INFO","NUM_ROW_CheckUid() =" . $qr_check->num_rows() );
 		return $uid;
 	}else{
 		//return "duplicate $uid";
+		CreateLog("WARNING","Duplicate_UID =" . $uid );
 		return GenUid($table,$col_id);
 	}
 }
